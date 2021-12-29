@@ -145,7 +145,6 @@ class InstallIt:
         # No proper doctest (<<<) because it is os dependent
 
         '''
-        success = True
         rc = 0
         c_user_name = 0
         c_passwd = 1
@@ -158,12 +157,10 @@ class InstallIt:
                     user[c_user_name], user[c_host], user[c_passwd]
                 )
             )
-            rc = beescript.exec_cmd(cmd, p_crash=True, p_verbose=p_verbose)
+            rc = beescript.exec_cmd(cmd, p_verbose=p_verbose)
         cmd = cmd_base + ['''FLUSH PRIVILEGES;''']
-        rc = beescript.exec_cmd(cmd, p_crash=True, p_verbose=p_verbose) and rc
-        if rc is not True:
-            success = False
-        return success
+        rc = beescript.exec_cmd(cmd, p_verbose=p_verbose) and rc
+        return rc
 
     def create_nginx_config(
         self,
@@ -494,9 +491,7 @@ class InstallIt:
                 success = False
         return success
 
-    def delete_linux_users(
-        self, p_del_users, p_report_err=True, p_crash=True, p_verbose=False
-    ):
+    def delete_linux_users(self, p_del_users, p_report_err=True, p_verbose=False):
         '''Delete a linux user
 
         Parameters
@@ -510,16 +505,14 @@ class InstallIt:
         # No proper doctest (<<<) because it is os dependent
 
         '''
-        success = True
+        rc = 0
         if self.curr_os == beeutils.LINUX:
             c_user_name = 0
             # c_passwd = 1
             for user in p_del_users:
                 cmd = ['sudo', 'userdel', '-r', '-f', user[c_user_name]]
-                rc = beescript.exec_cmd(cmd, p_crash=p_crash, p_verbose=p_verbose)
-                if rc != 0 and p_report_err:
-                    success = False
-        return success
+                rc = beescript.exec_cmd(cmd, p_verbose=p_verbose)
+        return rc
 
     def delete_mysql_users(
         self, p_admin_user, p_del_users, p_report_err=True, p_verbose=False
@@ -537,7 +530,6 @@ class InstallIt:
         # No proper doctest (<<<) because it is os dependent
 
         '''
-        success = True
         rc = 0
         c_user_name = 0
         c_host = 1
@@ -547,10 +539,8 @@ class InstallIt:
             cmd.append(
                 '''DROP USER '{}'@'{}';'''.format(user[c_user_name], user[c_host])
             )
-            rc = beescript.exec_cmd(cmd, p_crash=False, p_verbose=p_verbose)
-        if rc != 0 and p_report_err:
-            success = False
-        return success
+            rc = beescript.exec_cmd(cmd, p_verbose=p_verbose)
+        return rc
 
     @staticmethod
     def get_reahl_app_name(p_reahl_app_wheel_name):
@@ -591,7 +581,6 @@ class InstallIt:
         c_table = 3
         c_grant = 4
         c_rights = 5
-        success = True
         rc = 0
         cmd_base = self.make_sql_base_cmd(p_admin_user)
         for right in p_user_rights:
@@ -608,12 +597,10 @@ class InstallIt:
                     grant_rights,
                 )
             ]
-            rc = beescript.exec_cmd(cmd, p_crash=True, p_verbose=p_verbose)
+            rc = beescript.exec_cmd(cmd, p_verbose=p_verbose)
         cmd = cmd_base + ['''FLUSH PRIVILEGES;''']
-        rc = beescript.exec_cmd(cmd, p_crash=True, p_verbose=p_verbose) and rc
-        if rc is not True:
-            success = False
-        return success
+        rc = beescript.exec_cmd(cmd, p_verbose=p_verbose) and rc
+        return rc
 
     def make_sql_base_cmd(self, p_user=[False, False]):
         '''Make mysql base command for the os
@@ -948,7 +935,7 @@ def do_examples(p_cls=True):
             success = success and False
             beeutils.result_rep(success, 'create_nginx_config')
         if not t_install_utils.delete_linux_users(
-            linux_users, p_report_err=False, p_crash=False, p_verbose=True
+            linux_users, p_report_err=False, p_verbose=True
         ):
             success = success and False
             beeutils.result_rep(success, 'delete_linux_users')
