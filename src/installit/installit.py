@@ -1020,5 +1020,9 @@ def do_examples(p_cls=True):
     return success
 
 
+def project_desc():
+    return _PROJ_DESC
+
+
 if __name__ == '__main__':
     do_examples()

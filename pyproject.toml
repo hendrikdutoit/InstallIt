@@ -7,4 +7,4 @@ skip-string-normalization = true
 
 [tool.black]
 skip-string-normalization = true
-extend-exclude = ["/templates", "/data"]
+extend-exclude = "/templates"
