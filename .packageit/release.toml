@@ -1,6 +1,12 @@
 [1.3.3]
 Title = "Version 1.3.3"
 Description = [ "Multiple enhancements and bug fixes", "Remove references to p_crash from beescript.beescript (GitHub issue #2).", "Update GitHub workflow titles (GitHub issue #3).",]
+GitHubIssues = [ 3, 4,]
+
+[1.3.3]
+Title = "Version 1.3.4"
+Description = [ "[Bug]: uwsgi internal server error", "Remove references to p_crash from beescript.beescript (GitHub issue #2).", "Update GitHub workflow titles (GitHub issue #3).",]
+
 
 [1.3.2]
 Title = "Version 1.3.2"

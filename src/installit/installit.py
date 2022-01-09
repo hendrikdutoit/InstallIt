@@ -415,7 +415,7 @@ class InstallIt:
             '[uwsgi]',
             'plugins = python3',
             'virtualenv = {}'.format(beevenv.get_dir(p_venv_base_dir, p_venv_name)),
-            'module = {}Wsgi'.format(reahl_app_name),
+            'module = {}wsgi'.format(reahl_app_name),
             'enable-threads = true',
             'processes = {}'.format(p_parms['uwsgiProcesses']),
             'threads = {}'.format(p_parms['uwsgiThreats']),
