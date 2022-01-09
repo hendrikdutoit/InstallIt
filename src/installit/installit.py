@@ -3,12 +3,8 @@
 Utilities for installing a Linux machine.
 '''
 import logging
-
-# import os
 from pathlib import Path
 import shutil
-
-# import subprocess
 from termcolor import colored
 from beetools import beearchiver, beeutils, beescript, beevenv
 
