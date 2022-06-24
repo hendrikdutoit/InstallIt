@@ -21,8 +21,5 @@ class TestInstallIt:
         assert t_installit.success
         pass
 
-    def test_do_examples(self):
-        installit.do_examples()
-
 
 del b_tls
