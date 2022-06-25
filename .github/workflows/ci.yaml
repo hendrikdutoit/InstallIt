@@ -3,13 +3,7 @@ name: CI
 on: [pull_request, push, workflow_dispatch]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - uses: pre-commit/action@v2.0.0
-  test:
+  ContiniousIntegration:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
@@ -26,6 +20,8 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
+
+      - uses: pre-commit/action@v2.0.0
 
       - name: Install Requirements for Prod
         run:  |
