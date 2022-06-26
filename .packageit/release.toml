@@ -1,3 +1,8 @@
+[1.4.1]
+Title = "Version 1.4.1"
+Description = [ "V1.4.0 tag not pushed correctly (multiple tags).",]
+GitHubIssues = [ 5,]
+
 [1.4.0]
 Title = "Version 1.4.0"
 Description = [ "Sortout GitHub Actions", "- Sort out CI.", "- Release to PyPI only run if a tag is pushed.",]
