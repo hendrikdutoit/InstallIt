@@ -1,7 +1,7 @@
 '''Testing installit()'''
 
 from pathlib import Path
-from beetools import Archiver, beeutils
+from beetools import Archiver
 import installit
 
 
@@ -24,12 +24,12 @@ class TestInstallIt:
     def test_configure_mysql_remote_access(self, env_setup_self_destruct):
         env_setup = env_setup_self_destruct
         t_installit = installit.InstallIt()
-        if t_installit.curr_os == beeutils.LINUX:
-            t_installit.configure_mysql_remote_access(
-                env_setup.mysql_user_admin,
-                env_setup.mysql_user_remote_users,
-                env_setup.mysql_user_remote_rights,
-            )
+        # if t_installit.curr_os == beeutils.LINUX:
+        t_installit.configure_mysql_remote_access(
+            env_setup.mysql_user_admin,
+            env_setup.mysql_user_remote_users,
+            env_setup.mysql_user_remote_rights,
+        )
         pass
 
 

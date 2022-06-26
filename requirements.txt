@@ -5,6 +5,7 @@
 # packageit\pimp.ini and
 # D:\Dropbox\Projects\InstallIt\.packageit\packageit.ini
 #===================================================================
+configparser
 termcolor
 beetools
 reahl[all]

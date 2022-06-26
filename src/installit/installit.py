@@ -474,6 +474,9 @@ class InstallIt:
         else:
             mysql_cnf_pth = self.mysql_win_cfg_pth
             pass
+        if self.curr_os == beeutils.LINUX:
+            if beescript.exec_cmd(['sudo', 'chmod', '666', mysql_cnf_pth]) < 0:
+                success = False
         success = change_config_file(mysql_cnf_pth) and success
         success = (
             self.create_mysql_users(p_admin_user, p_new_users, p_verbose) and success
