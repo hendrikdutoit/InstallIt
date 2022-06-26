@@ -25,7 +25,7 @@ class TestInstallIt:
         env_setup = env_setup_self_destruct
         t_installit = installit.InstallIt()
         # if t_installit.curr_os == beeutils.LINUX:
-        t_installit.configure_mysql_remote_access(
+        assert t_installit.configure_mysql_remote_access(
             env_setup.mysql_user_admin,
             env_setup.mysql_user_remote_users,
             env_setup.mysql_user_remote_rights,
