@@ -1,3 +1,8 @@
+[1.5.0]
+Title = "Version 1.5.0"
+Description = [ "Use configparser to change the values in change_config_file().", "Change /etc/mysql/mysql.conf.d/mysqld.cnf permissions in code rather in action setup.",]
+GitHubIssues = [ 6,]
+
 [1.4.1]
 Title = "Version 1.4.1"
 Description = [ "V1.4.0 tag not pushed correctly (multiple tags).",]
