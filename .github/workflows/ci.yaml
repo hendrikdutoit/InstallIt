@@ -24,7 +24,7 @@ jobs:
       - name: Shutdown Ubuntu MySQL (SUDO)
         run: sudo service mysql stop # Shutdown the Default MySQL, "sudo" is necessary, please not remove it
 
-      - name: Setup MySQL Docker Docker Container
+      - name: Setup MySQL Docker Container
         uses: mirromutth/mysql-action@v1.1
         with:
 #          host port: 3800 # Optional, default value is 3306. The port of host
