@@ -47,7 +47,7 @@ jobs:
           pip install -e .
 
       - name: Change Access to MySQL Config File
-        run:  sudo chmod 444 /etc/mysql/mysql.conf.d/mysqld.cnf
+        run:  sudo chmod 666 /etc/mysql/mysql.conf.d/mysqld.cnf
 
       - name: Run tests
         run: pytest tests
