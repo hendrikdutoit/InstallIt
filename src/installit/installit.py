@@ -2,6 +2,7 @@
 
 Utilities for installing a Linux machine.
 '''
+
 import logging
 from pathlib import Path
 import shutil
@@ -734,7 +735,7 @@ def do_examples(p_cls=True):
 
         def read_file(p_pth):
             data = []
-            with (open(p_pth, "r")) as file_ptr:
+            with open(p_pth, "r") as file_ptr:
                 raw_data = file_ptr.readlines()
             for line in raw_data:
                 data.append(line.strip('\n'))
